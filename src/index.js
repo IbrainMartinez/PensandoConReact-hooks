@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ProductCategoryRow from './buscador/ProductCategoryRow';
+import SearchBar from './buscador/SearchBar';
+import ProductTable from './buscador/ProductTable';
+import ProductRow from './buscador/ProductRow';
+import FilterableProductTable from './buscador/FilterableProductTable ';
+import Category from './buscador/category';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Category/>
   </React.StrictMode>
 );
 
