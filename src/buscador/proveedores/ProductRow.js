@@ -2,7 +2,7 @@ const ProductRow = (props)=>{
 
   const {product} = props;
 
-    const name = product.stocked == 'true' ?
+    const name = product.stocked ?
       product.name :
       <span style={{color: 'red'}}>
         {product.name}
@@ -12,8 +12,9 @@ const ProductRow = (props)=>{
         <>
             <tr>
               <td>{name}</td>
-              <td>{product.price}</td>
-           </tr>  
+              <td>{product.tipo}</td>
+            </tr>
+          
         </>
         
       );

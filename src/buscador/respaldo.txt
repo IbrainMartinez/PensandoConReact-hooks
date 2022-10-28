@@ -1,3 +1,6 @@
+-------->este archivo actualiza la tabla pero quita algunas opciones como el checkbox,
+la barra de busqueda y algunas mas----------->
+
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 const ProductTable = (props) =>{
@@ -24,15 +27,12 @@ const ProductTable = (props) =>{
             key={product.category} />
         );
       }
-        
-        rows.push(
-          <ProductRow
-          listaUsuarios={listaUsuarios}
-            product={product}
-            key={product.name}
-          />
-        );
-
+      rows.push(
+        <ProductRow
+          product={product}
+          key={product.name}
+        />
+      );
       lastCategory = product.category;
     });
 
@@ -47,15 +47,26 @@ const ProductTable = (props) =>{
         </thead>
        
           
-        
+          {
+            console.log(listaUsuarios)
+          }
+          {
+            
+            listaUsuarios.map((rows) =>(
               <tbody>
               {
-                rows
+                <tr key={rows.id}>
+                  <td>{rows.name}</td>
+                  <td>{rows.price}</td>
+                </tr>
+                
+                
               }
+             
       
             </tbody>
-         
-          
+            ))
+          }
 
         
       </table>

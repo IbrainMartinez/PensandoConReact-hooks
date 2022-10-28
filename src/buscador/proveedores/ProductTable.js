@@ -3,9 +3,12 @@ import ProductRow from './ProductRow';
 const ProductTable = (props) =>{
 
   const {filterText} = props;
+  
   const {inStockOnly} = props;
+  const {inStockOnly2} = props;
+  const {inStockOnly3} = props;
+
   const {product} = props;
-  const {listaUsuarios} = props;
 
     const rows = [];
     let lastCategory = null;
@@ -14,26 +17,28 @@ const ProductTable = (props) =>{
       if (product.name.indexOf(filterText) === -1) {
         return;
       }
-      if (inStockOnly && product.stocked =='false' ) {
+      if (inStockOnly && product.tipo !=='online') {
         return;
       }
-      if (product.category !== lastCategory) {
+      if (inStockOnly2 &&  product.tipo !== 'mayoreo') {
+        return;
+      }if (inStockOnly3 && product.tipo !== 'menudeo') {
+        return
+      }
+      if (product.estado !== lastCategory) {
         rows.push(
           <ProductCategoryRow
-            category={product.category}
-            key={product.category} />
+          estado={product.estado}
+            key={product.estado} />
         );
       }
-        
-        rows.push(
-          <ProductRow
-          listaUsuarios={listaUsuarios}
-            product={product}
-            key={product.name}
-          />
-        );
-
-      lastCategory = product.category;
+      rows.push(
+        <ProductRow
+          product={product}
+          key={product.name}
+        />
+      );
+      lastCategory = product.estado;
     });
 
     return (
@@ -42,22 +47,10 @@ const ProductTable = (props) =>{
         <thead>
           <tr>
             <th>Name</th>
-            <th>Price</th>
+            <th>Estado</th>
           </tr>
         </thead>
-       
-          
-        
-              <tbody>
-              {
-                rows
-              }
-      
-            </tbody>
-         
-          
-
-        
+        <tbody>{rows}</tbody>
       </table>
       </>
       
