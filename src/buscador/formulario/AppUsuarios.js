@@ -47,7 +47,7 @@ const Completo = () =>{
           <div className="flex-row">
                   <div className="flex-large">
                       <div className="container ">
-                        <FilterableProductTable product={UsuariosData} listaUsuarios={listaUsuarios}/>
+                        <FilterableProductTable product={listaUsuarios}/>
                         <ProductRow product={UsuariosData} />
                         <ProductCategoryRow product={UsuariosData} />
                       </div>

@@ -7,9 +7,9 @@ const FormularioAlta= (props) =>{
 
 /////
     const handleInputChange = (event) =>{
-        
+        const  {name, value} = event.target;
         setUsuario({
-            ...usuario,[event.target.name] : event.target.value
+            ...usuario,[name] : value
         });  
     }   
 
@@ -48,9 +48,6 @@ const FormularioAlta= (props) =>{
 
                 <label >Product</label>
                 <input type="text" placeholder="Escribe el nombre del producto"  onChange={handleInputChange} name='name' value={usuario.name} required/>
-  
-
-                <p>"Si guarda los datos, Pero no actualiza la tabla. En la consola, se muestra que si guarda el arreglo actualizado"</p>
 
                 <input type="submit" value="enviar"/>
                 
